@@ -1,13 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {HttpService} from '../../services/http.service';
-import {Currency} from '../../model/Currency';
 
 @Component({
-  selector: 'app-currency-list',
-  templateUrl: './currency-list.component.html',
-  styleUrls: ['./currency-list.component.scss']
+  selector: 'app-exchange',
+  templateUrl: './exchange.component.html',
+  styleUrls: ['./exchange.component.scss']
 })
-export class CurrencyListComponent implements OnInit {
+export class ExchangeComponent implements OnInit {
   currencyRates = this._httpService._latestRates$;
   baseCurrency = this._httpService.baseCurrency$;
   // tslint:disable-next-line:variable-name
@@ -15,5 +14,7 @@ export class CurrencyListComponent implements OnInit {
 
   ngOnInit(): void {
     this._httpService.getRatesForBaseCurrency();
+    console.log(this.currencyRates);
   }
+
 }

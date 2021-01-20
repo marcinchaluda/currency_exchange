@@ -13,8 +13,7 @@ import {Currency} from '../../model/Currency';
 })
 export class NavigationComponent implements OnInit {
   currencySymbols = new Array<string>();
-  currencies = new Array<Currency>();
-  baseCurrency = '';
+  baseCurrency = 'EUR';
   faHome = faHome;
   faExchange = faExchangeAlt;
   faChart = faChartBar;
@@ -25,7 +24,7 @@ export class NavigationComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCurrenciesSymbols();
-    this.getCurrenciesRates();
+    this._httpService.getRatesForBaseCurrency();
   }
   // tslint:disable-next-line:typedef
   getCurrenciesSymbols(): void {
@@ -41,32 +40,11 @@ export class NavigationComponent implements OnInit {
   selectChangeHandler(event: any): void {
     this.baseCurrency = event.target.value;
     this.setBaseCurrencyInService(this.baseCurrency);
-    this.getCurrenciesRates();
-    this.setCurrenciesInService(this.currencies);
-    console.log(this.baseCurrency);
+    this._httpService.getRatesForBaseCurrency();
+
   }
   // tslint:disable-next-line:typedef
   private setBaseCurrencyInService(baseCurrency: string): void {
     this._httpService.setBaseCurrency(baseCurrency);
-  }
-  private setCurrenciesInService(currencies: Array<Currency>): void {
-    this._httpService.setCurrencies(currencies);
-  }
-  // tslint:disable-next-line:typedef
-  getCurrenciesRates() {
-    this.currencies.length = 0;
-    this._httpService.getRatesForBaseCurrency().subscribe(data => {
-      for (const [key, value] of Object.entries(data.rates)) {
-        if ((key === 'USD' || key === 'JPY' || key === 'GBP' || key === 'EUR' || key === 'CHF') && key !== this.baseCurrency) {
-          // @ts-ignore
-          const currencyDetails: Currency = ({
-            currSymbol: key,
-            currValue: Number(value),
-          });
-          this.currencies.push(currencyDetails);
-        }
-      }
-      console.log(this.currencies);
-    });
   }
 }

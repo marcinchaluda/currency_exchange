@@ -9,12 +9,12 @@ import {HeaderComponent} from './components/header/header.component';
 import {HttpService} from './services/http.service';
 import {NavigationComponent} from './components/navigation/navigation.component';
 import {HttpClientModule} from '@angular/common/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
-import { CarouselComponent } from './components/carousel/carousel.component';
-import { CurrencyPairComponent } from './components/currency-pair/currency-pair.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { CurrencyListComponent } from './components/currency-list/currency-list.component';
+import {NgbCarouselConfig, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {CarouselComponent} from './components/carousel/carousel.component';
+import {FooterComponent} from './components/footer/footer.component';
+import {CurrencyListComponent} from './components/currency-list/currency-list.component';
+import { ExchangeComponent } from './components/exchange/exchange.component';
+import { ChartComponent } from './components/chart/chart.component';
 
 @NgModule({
   declarations: [
@@ -22,9 +22,10 @@ import { CurrencyListComponent } from './components/currency-list/currency-list.
     HeaderComponent,
     NavigationComponent,
     CarouselComponent,
-    CurrencyPairComponent,
     FooterComponent,
-    CurrencyListComponent
+    CurrencyListComponent,
+    ExchangeComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,

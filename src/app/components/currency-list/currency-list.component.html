@@ -1,7 +1,12 @@
-<h1>Base currency: {{baseCurrency}}</h1>
 <div class="container">
-  <ng-container *ngFor="let currency of currencyRates">
-      <p>{{currency.currSymbol}}: {{currency.currValue | number : '1.2-2'}}</p>
-  </ng-container>
+  <div class="list">
+    <ul class="pair" *ngFor="let currency of currencyRates.value">
+      <li>
+        <div class="currency__pair">{{baseCurrency.value}}/{{currency.currSymbol}}</div>
+        <div class="currency__value">{{currency.currValue | number : '1.2-2'}}</div>
+        <div class="description">ratio</div>
+      </li>
+    </ul>
+  </div>
 </div>
 

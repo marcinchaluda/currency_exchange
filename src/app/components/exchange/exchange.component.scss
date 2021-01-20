@@ -1,0 +1,77 @@
+@import "../../../sass-global/variables";
+
+.container {
+  width: 80%;
+  margin: 2em auto;
+
+  .header {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    font-size: 1.7em;
+    text-transform: uppercase;
+
+    .amount {
+      margin: 0 1em;
+    }
+  }
+
+  .pair {
+    margin-top: 1.5em;
+    background-color: $colorDarkGreenRGB;
+    border-radius: 25px;
+    list-style: none;
+
+    &__options {
+      width: 30%;
+      height: 30px;
+      cursor: pointer;
+      border-radius: 0;
+      font-size: 1em;
+      background-color: $colorDarkGreen;
+      border: none;
+      color: $colorSilver;
+      padding: 0 0 0 20px;
+    }
+
+    li {
+      width: 100%;
+      display: flex;
+      height: 59px;
+      line-height: 59px;
+
+      .currency__pair {
+        width: 40%;
+        background-color: $colorDarkGreen;
+        align-self: flex-start;
+        border-radius: 25px;
+        text-align: center;
+        color: $colorSilver;
+        font-size: 1.3em;
+      }
+
+      .currency__value {
+        width: 50%;
+        text-align: center;
+        font-size: 1.3em;
+        color: $colorDarkGreen;
+      }
+
+      .description {
+        width: 10%;
+        align-self: flex-end;
+        font-size: 1.3em;
+        color: $colorDarkGreenRGB;
+      }
+    }
+  }
+}
+
+.amount[type=number] {
+  text-align: center;
+  background-color: $colorSilver;
+  border: 1px solid $colorDarkGreen;
+  border-radius: 4px;
+  color: $colorDarkGreen;
+}

@@ -13,8 +13,9 @@ import {NgbCarouselConfig, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {CarouselComponent} from './components/carousel/carousel.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {CurrencyListComponent} from './components/currency-list/currency-list.component';
-import { ExchangeComponent } from './components/exchange/exchange.component';
-import { ChartComponent } from './components/chart/chart.component';
+import {ExchangeComponent} from './components/exchange/exchange.component';
+import {ChartComponent} from './components/chart/chart.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,13 +28,14 @@ import { ChartComponent } from './components/chart/chart.component';
     ExchangeComponent,
     ChartComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FontAwesomeModule,
-    HttpClientModule,
-    NgbModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FontAwesomeModule,
+        HttpClientModule,
+        NgbModule,
+        FormsModule,
+    ],
   providers: [HttpService, NgbCarouselConfig],
   bootstrap: [AppComponent]
 })

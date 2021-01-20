@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {BehaviorSubject, Observable, Subject} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {Currency} from '../model/Currency';
 
 
@@ -10,6 +10,7 @@ import {Currency} from '../model/Currency';
 export class HttpService {
   private BASE_URL = 'https://api.exchangeratesapi.io/';
   // tslint:disable-next-line:variable-name
+  _currencySymbols$ = new BehaviorSubject(new Array<string>());
   baseCurrency$ = new BehaviorSubject('EUR');
   // tslint:disable-next-line:variable-name
   _sliderCurrencies$ = new BehaviorSubject(new Array<Currency>());
@@ -19,13 +20,14 @@ export class HttpService {
   _latestRates$ = new BehaviorSubject(new Array<Currency>());
   // baseCurr$: Observable<string> = this.baseCurrency.asObservable();
   // tslint:disable-next-line:variable-name
+  _latestApiUpdate$ = new BehaviorSubject('');
+  // tslint:disable-next-line:variable-name
+  private _baseCurrencyList = ['USD', 'GBP', 'CHF', 'EUR', 'JPY'];
+  // tslint:disable-next-line:variable-name
+  _exchangeList$ = new BehaviorSubject(new Array<Currency>());
+  // tslint:disable-next-line:variable-name
   constructor(private _http: HttpClient) {
 
-  }
-  // tslint:disable-next-line:typedef
-  getLatestRates(): Observable<any> {
-    // @ts-ignore
-    return this._http.get(this.BASE_URL + 'latest');
   }
   // tslint:disable-next-line:typedef
   getRatesForBaseCurrency() {
@@ -35,7 +37,27 @@ export class HttpService {
       // @ts-ignore
       this.generateLatestRates(data.rates);
       // @ts-ignore
+      this.getLatestRates(data.rates);
+      // @ts-ignore
       this._sliderCurrencies$.next(data.rates);
+      // @ts-ignore
+      this._latestApiUpdate$.next(data.date);
+      // @ts-ignore
+    });
+  }
+  // tslint:disable-next-line:typedef
+  getLatestRates(): Observable<any> {
+    // @ts-ignore
+    return this._http.get(this.BASE_URL + 'latest').subscribe(data => {
+      const symbols = new Array<string>();
+      // @ts-ignore
+      this.baseCurrency = data.base;
+      // @ts-ignore
+      for (const currencyKey of Object.keys(data.rates)) {
+        symbols.push(currencyKey);
+      }
+      symbols.push('EUR');
+      this._currencySymbols$.next(symbols);
     });
   }
   // tslint:disable-next-line:typedef
@@ -73,9 +95,38 @@ export class HttpService {
     this._latestRates$.next(latestRates);
   }
 
+  getExchangeList(array: string[]): void {
+    const exCurr = new Array<Currency>();
+    // @ts-ignore
+    return this._http.get(this.BASE_URL + `latest/?base=${this.baseCurrency$.value}`).subscribe(data => {
+      // @ts-ignore
+      for (const [key, value] of Object.entries(data.rates)) {
+        // tslint:disable-next-line:forin
+        for (const i in array) {
+          if (key === array[i]) {
+            const currencyDetails: Currency = ({
+              currSymbol: key,
+              currValue: Number(value),
+            });
+            exCurr.push(currencyDetails);
+          }
+        }
+        this._exchangeList$.next(exCurr);
+      }
+    });
+  }
+
   setBaseCurrency(currency: string): void {
     // @ts-ignore
     this.baseCurrency$.next(currency);
+  }
+  // tslint:disable-next-line:typedef
+  setExchangeList(value: string[]) {
+    this._baseCurrencyList = value;
+  }
+
+  getBaseCurrencyList(): string[] {
+    return this._baseCurrencyList;
   }
 }
 

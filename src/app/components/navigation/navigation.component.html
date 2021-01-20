@@ -3,8 +3,8 @@
     <div class="menu__currency-details">
       <span class="menu__description">base currency: </span>
       <select class="menu__options" (change)="selectChangeHandler($event)">
-        <ng-container *ngFor="let currency of currencySymbols">
-          <ng-container *ngIf="baseCurrency; else basicOption">
+        <ng-container *ngFor="let currency of currencySymbols.value">
+          <ng-container *ngIf="currency === 'EUR'; else basicOption">
             <option value="{{currency}}" selected>{{currency | uppercase}}</option>
           </ng-container>
           <ng-template #basicOption>

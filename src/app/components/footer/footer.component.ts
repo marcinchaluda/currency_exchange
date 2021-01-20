@@ -15,17 +15,12 @@ export class FooterComponent implements OnInit {
   fbIcon = faFacebookF;
   gitHubIcon = faGithub;
   mailIcon = faEnvelope;
-  latestApiUpdate = '';
+  latestApiUpdate = this._httpService._latestApiUpdate$;
+  currencyRates = this._httpService._latestRates$;
   // tslint:disable-next-line:variable-name
   constructor(private _httpService: HttpService) { }
 
   ngOnInit(): void {
-    this.getLatestApiUpdate();
-  }
-
-  getLatestApiUpdate(): void {
-    this._httpService.getLatestRates().subscribe(data => {
-      this.latestApiUpdate = data.date;
-    });
+    this._httpService.getRatesForBaseCurrency();
   }
 }

@@ -1,10 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpService} from '../../services/http.service';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
-import { faExchangeAlt } from '@fortawesome/free-solid-svg-icons';
-import { faChartBar } from '@fortawesome/free-solid-svg-icons';
-import { faThList } from '@fortawesome/free-solid-svg-icons';
-import {Currency} from '../../model/Currency';
+import {faChartBar, faExchangeAlt, faHome, faThList} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navigation',
@@ -12,8 +8,9 @@ import {Currency} from '../../model/Currency';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
-  currencySymbols = new Array<string>();
-  baseCurrency = 'EUR';
+  currencySymbols = this._httpService._currencySymbols$;
+  baseCurrency = this._httpService.baseCurrency$;
+  exchangeList = [];
   faHome = faHome;
   faExchange = faExchangeAlt;
   faChart = faChartBar;
@@ -23,25 +20,17 @@ export class NavigationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getCurrenciesSymbols();
     this._httpService.getRatesForBaseCurrency();
-  }
-  // tslint:disable-next-line:typedef
-  getCurrenciesSymbols(): void {
-    this._httpService.getLatestRates().subscribe(data => {
-      this.baseCurrency = data.base;
-      for (const currencyKey of Object.keys(data.rates)) {
-        this.currencySymbols.push(currencyKey);
-      }
-      this.currencySymbols.push(this.baseCurrency);
-    });
+    // @ts-ignore
+    this.baseCurrency = this._httpService.baseCurrency$;
   }
   // tslint:disable-next-line:typedef
   selectChangeHandler(event: any): void {
-    this.baseCurrency = event.target.value;
-    this.setBaseCurrencyInService(this.baseCurrency);
+    // @ts-ignore
+    this.exchangeList = this._httpService.getBaseCurrencyList();
+    this.setBaseCurrencyInService(event.target.value);
     this._httpService.getRatesForBaseCurrency();
-
+    this._httpService.getExchangeList(this.exchangeList);
   }
   // tslint:disable-next-line:typedef
   private setBaseCurrencyInService(baseCurrency: string): void {

@@ -1,3 +1,61 @@
+/* Color Theme Swatches in Hex */
+/* Color Theme Swatches in RGBA */
+.container {
+  width: 80%;
+  margin: 2em auto; }
+  .container .header {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    font-size: 1.7em;
+    text-transform: uppercase; }
+    .container .header .amount {
+      margin: 0 1em; }
+  .container .pair {
+    margin-top: 1.5em;
+    background-color: rgba(43, 63, 1, 0.3);
+    border-radius: 25px;
+    list-style: none; }
+    .container .pair__options {
+      width: 30%;
+      height: 30px;
+      cursor: pointer;
+      border-radius: 0;
+      font-size: 1em;
+      background-color: #2C4001;
+      border: none;
+      color: #EBF2F2;
+      padding: 0 0 0 20px; }
+    .container .pair li {
+      width: 100%;
+      display: flex;
+      height: 59px;
+      line-height: 59px; }
+      .container .pair li .currency__pair {
+        width: 40%;
+        background-color: #2C4001;
+        align-self: flex-start;
+        border-radius: 25px;
+        text-align: center;
+        color: #EBF2F2;
+        font-size: 1.3em; }
+      .container .pair li .currency__value {
+        width: 50%;
+        text-align: center;
+        font-size: 1.3em;
+        color: #2C4001; }
+      .container .pair li .description {
+        width: 10%;
+        align-self: flex-end;
+        font-size: 1.3em;
+        color: rgba(43, 63, 1, 0.3); }
 
+.amount[type=number] {
+  text-align: center;
+  background-color: #EBF2F2;
+  border: 1px solid #2C4001;
+  border-radius: 4px;
+  color: #2C4001; }
 
 /*# sourceMappingURL=exchange.component.css.map */

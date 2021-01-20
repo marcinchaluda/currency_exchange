@@ -1,1 +1,24 @@
-<p>exchange works!</p>
+<div class="container">
+  <div class="header">
+    <div class="text">Amount</div>
+    <input [(ngModel)]="amount" type="number" placeholder="enter amount" class="amount"/>
+    <div class="base_currency">{{baseCurrency.value}}</div>
+  </div>
+  <ul class="pair" *ngFor="let currency of currencyRates.value; let i = index">
+      <li>
+        <div class="currency__pair">
+          <select class="pair__options" (change)="browseCurrencies($event, i)">
+            <ng-container *ngFor="let symbol of currencySymbols.value">
+              <ng-container *ngIf="symbol === currency.currSymbol; else basicOption">
+                <option value="{{symbol}}" selected>{{symbol | uppercase}}</option>
+              </ng-container>
+              <ng-template #basicOption>
+                <option value="{{symbol}}">{{symbol | uppercase}}</option>
+              </ng-template>
+            </ng-container>
+          </select>
+        </div>
+        <div class="currency__value">{{calculate(amount, currency.currValue)}}</div>
+      </li>
+  </ul>
+</div>

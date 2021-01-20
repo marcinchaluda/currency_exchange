@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <ngb-carousel *ngIf="commonCurrencies">
+    <ng-container *ngFor="let currency of commonCurrencies">
+      <p>{{currency}}</p>
+      <ng-template ngbSlide>
+        <div class="container">
+          <div class="wrapper">
+            <div class="background">
+              <div class="background__opacity">
+                <button class="btn"><fa-icon class="content__icon" [icon]="imgIcon"></fa-icon></button>
+              </div>
+            </div>
+            <div class="pair-details">
+              <h1 class="pair-details__name">
+                <fa-icon class="content__icon" [icon]="money"></fa-icon>
+                {{baseCurrency}}/{{currency.currSymbol}}
+              </h1>
+              <p class="pair-details__value">One {{baseCurrency}} equals {{currency.currValue | number : '1.2-2'}}{{currency.currSymbol}}</p>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </ng-container>
+  </ngb-carousel>
+</div>

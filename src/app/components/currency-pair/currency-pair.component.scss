@@ -1,0 +1,74 @@
+@import "../../../sass-global/variables";
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.wrapper {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+}
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25vw;
+  height: 25vw;
+}
+
+.pair-details {
+  position: absolute;
+  top: 3vw;
+  left: 23vw;
+  width: 25vw;
+  height: 19vw;
+  background-color: $colorSilver;
+  box-shadow: 0 0px 3px 3px lighten($colorGreen, 5%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.background__opacity {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25vw;
+  height: 25vw;
+  background-image: url('../../../assets/EUR.png');
+  background-position: center;
+  background-size: cover;
+  display: flex;
+
+  .btn {
+    display: none;
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+    color: $colorSilver;
+    margin: auto;
+    align-self: center;
+  }
+}
+
+.background:hover {
+  opacity: 0.3;
+}
+
+.background__opacity:hover .btn {
+  display: block;
+  cursor: pointer;
+}
+
+.pair-details__value {
+  color: $colorGreenRGB;
+  font-size: 1.2em;
+}
+
+.pair-details__name {
+  color: $colorDarkGreen;
+}

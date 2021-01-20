@@ -1,0 +1,59 @@
+/* Color Theme Swatches in Hex */
+/* Color Theme Swatches in RGBA */
+* {
+  margin: 0;
+  padding: 0; }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 20vh;
+  background-color: rgba(43, 63, 1, 0.3);
+  display: flex;
+  flex-direction: column; }
+  .footer__info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 10vw;
+    color: #2C4001;
+    text-transform: uppercase; }
+    .footer__info a {
+      color: rgba(43, 63, 1, 0.3);
+      transition: 0.3s;
+      text-transform: capitalize; }
+    .footer__info a:hover {
+      cursor: pointer;
+      text-decoration: none;
+      color: goldenrod; }
+    .footer__info .footer__desc h4 {
+      text-transform: capitalize;
+      color: #265a02; }
+    .footer__info .footer__contact {
+      display: flex;
+      flex-direction: column; }
+      .footer__info .footer__contact .footer__icons {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 0.1em;
+        font-size: 1.5em;
+        transition: 0.3s;
+        color: rgba(43, 63, 1, 0.3); }
+        .footer__info .footer__contact .footer__icons fa-icon {
+          transition: 0.5s;
+          color: rgba(43, 63, 1, 0.3); }
+        .footer__info .footer__contact .footer__icons fa-icon:hover {
+          color: #2C4001; }
+  .footer__copyrights {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #2C4001;
+    color: #EBF2F2;
+    text-align: center;
+    padding: 0.5em; }
+
+/*# sourceMappingURL=footer.component.css.map */

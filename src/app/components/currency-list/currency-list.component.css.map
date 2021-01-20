@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,UAAW;EACT,UAAU,EAAE,MAAM;EAElB,MAAM,EAAE,IAAI",
+"sources": ["currency-list.component.scss"],
+"names": [],
+"file": "currency-list.component.css"
+}

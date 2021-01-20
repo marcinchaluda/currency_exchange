@@ -1,0 +1,54 @@
+@import "../../../sass-global/variables";
+
+.nav-container {
+  width: 95vw;
+  border-bottom: 1px solid lighten($colorGreen, 10%);
+  margin: 0 auto;
+  box-shadow: 0 8px 6px -6px lighten($colorGreen, 5%);
+}
+.menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0.5em auto;
+  width: 95vw;
+  height: 5vh;
+  font-size: 1.5em;
+
+  &__currency-details {
+    display: flex;
+    width: 40%
+  }
+
+  &__description {
+    padding-right: 0.5em;
+    color: $colorDarkGreen;
+    text-transform: uppercase;
+  }
+
+  &__options {
+    width: 20%;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 0;
+    font-size: 1em;
+    background-color: $colorSilver;
+    border: none;
+    color: $colorDarkGreen;
+    padding: 0 0 0 20px;
+  }
+
+  &__buttons {
+    display: flex;
+    width: 40%;
+    justify-content: flex-end;
+    & a {
+      padding: 0 1em;
+      color: $colorDarkGreenRGB;
+      transition: 0.5s;
+    }
+    & a:hover {
+      color: $colorGreen;
+    }
+  }
+}

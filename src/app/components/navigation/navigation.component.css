@@ -1,0 +1,45 @@
+/* Color Theme Swatches in Hex */
+/* Color Theme Swatches in RGBA */
+.nav-container {
+  width: 95vw;
+  border-bottom: 1px solid #46a503;
+  margin: 0 auto;
+  box-shadow: 0 8px 6px -6px #3c8c02; }
+
+.menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0.5em auto;
+  width: 95vw;
+  height: 5vh;
+  font-size: 1.5em; }
+  .menu__currency-details {
+    display: flex;
+    width: 40%; }
+  .menu__description {
+    padding-right: 0.5em;
+    color: #2C4001;
+    text-transform: uppercase; }
+  .menu__options {
+    width: 20%;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 0;
+    font-size: 1em;
+    background-color: #EBF2F2;
+    border: none;
+    color: #2C4001;
+    padding: 0 0 0 20px; }
+  .menu__buttons {
+    display: flex;
+    width: 40%;
+    justify-content: flex-end; }
+    .menu__buttons a {
+      padding: 0 1em;
+      color: rgba(43, 63, 1, 0.3);
+      transition: 0.5s; }
+    .menu__buttons a:hover {
+      color: #317302; }
+
+/*# sourceMappingURL=navigation.component.css.map */

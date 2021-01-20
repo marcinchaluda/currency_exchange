@@ -1,0 +1,76 @@
+@import "../../../sass-global/variables";
+* {
+   margin: 0;
+   padding: 0;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 20vh;
+  background-color: $colorDarkGreenRGB;
+  display: flex;
+  flex-direction: column;
+
+  &__info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 10vw;
+    color: $colorDarkGreen;
+    text-transform: uppercase;
+
+    a {
+      color: $colorDarkGreenRGB;
+      transition: 0.3s;
+      text-transform: capitalize;
+    }
+
+    a:hover {
+      cursor: pointer;
+      text-decoration: none;
+      color: goldenrod;
+    }
+
+    .footer__desc h4 {
+      text-transform: capitalize;
+      color: darken($colorGreen, 5%);
+    }
+
+    .footer__contact {
+      display: flex;
+      flex-direction: column;
+
+      .footer__icons {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 0.1em;
+        font-size: 1.5em;
+        transition: 0.3s;
+        color: $colorDarkGreenRGB;
+
+        fa-icon {
+          transition: 0.5s;
+          color: $colorDarkGreenRGB;
+        }
+
+        fa-icon:hover {
+          color: $colorDarkGreen;
+        }
+      }
+    }
+  }
+
+  &__copyrights {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: $colorDarkGreen;
+    color: $colorSilver;
+    text-align: center;
+    padding: 0.5em;
+  }
+}

@@ -1,0 +1,25 @@
+<div class="nav-container">
+  <nav class="menu">
+    <div class="menu__currency-details">
+      <span class="menu__description">base currency: </span>
+      <select class="menu__options" (change)="selectChangeHandler($event)">
+        <ng-container *ngFor="let currency of currencySymbols">
+          <ng-container *ngIf="baseCurrency; else basicOption">
+            <option value="{{currency}}" selected>{{currency | uppercase}}</option>
+          </ng-container>
+          <ng-template #basicOption>
+            <option value="{{currency}}">{{currency | uppercase}}</option>
+          </ng-template>
+        </ng-container>
+      </select>
+    </div>
+    <div class="menu__buttons">
+      <a routerLink="/" title="Home page"><fa-icon [icon]="faHome"></fa-icon></a>
+      <a routerLink="/list" title="Exchange list"><fa-icon [icon]="faList"></fa-icon></a>
+      <a routerLink="/exchange" title="Exchange currencies"><fa-icon [icon]="faExchange"></fa-icon></a>
+      <a routerLink="/chart" title="Display chart"><fa-icon [icon]="faChart"></fa-icon></a>
+    </div>
+  </nav>
+</div>
+
+

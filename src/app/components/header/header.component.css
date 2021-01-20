@@ -1,0 +1,23 @@
+/* Color Theme Swatches in Hex */
+/* Color Theme Swatches in RGBA */
+header {
+  height: 15vh;
+  background-color: #2C4001;
+  color: #EBF2F2; }
+
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center; }
+  .wrapper .content {
+    min-width: 640px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+    font-size: 3em; }
+    .wrapper .content__icon {
+      margin-right: 0.5em;
+      color: goldenrod; }
+
+/*# sourceMappingURL=header.component.css.map */

@@ -1,0 +1,27 @@
+@import "../../../sass-global/variables";
+
+header {
+  height: 15vh;
+  background-color: $colorDarkGreen;
+  color: $colorSilver;
+}
+
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+
+  .content {
+    min-width: 640px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+    font-size: 3em;
+
+    &__icon {
+      margin-right: 0.5em;
+      color: goldenrod;
+    }
+  }
+}

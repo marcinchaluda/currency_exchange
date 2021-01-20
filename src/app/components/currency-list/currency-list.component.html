@@ -1,0 +1,7 @@
+<h1>Base currency: {{baseCurrency}}</h1>
+<div class="container">
+  <ng-container *ngFor="let currency of currencyRates">
+      <p>{{currency.currSymbol}}: {{currency.currValue | number : '1.2-2'}}</p>
+  </ng-container>
+</div>
+

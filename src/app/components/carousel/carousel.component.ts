@@ -24,5 +24,4 @@ export class CarouselComponent implements OnInit {
   ngOnInit(): void {
     this._httpService.getRatesForBaseCurrency();
   }
-
 }

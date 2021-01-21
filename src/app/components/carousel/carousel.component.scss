@@ -50,12 +50,12 @@ $carouselArrowWidth: 3em;
   width: 80%;
   margin: 0 auto;
 }
-.background {
+.background img {
   position: absolute;
   top: 0;
   left: 0;
   width: 25vw;
-  height: 25vw;
+  height: 17vw;
 }
 
 .pair-details {
@@ -66,7 +66,7 @@ $carouselArrowWidth: 3em;
   height: 12vw;
   background-color: $colorSilver;
   box-shadow: 0 0 3px 3px lighten($colorGreen, 5%);
-  z-index: 1;
+  //z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -79,7 +79,6 @@ $carouselArrowWidth: 3em;
   left: 0;
   width: 25vw;
   height: 17vw;
-  background-image: url('../../../assets/EUR.png');
   background-position: center;
   background-size: cover;
   display: flex;
@@ -89,19 +88,20 @@ $carouselArrowWidth: 3em;
     width: 100%;
     text-align: center;
     font-size: 2em;
-    color: $colorSilver;
+    color: $colorDarkGreen;
     margin: auto;
     align-self: center;
   }
 }
 
 .background:hover {
-  opacity: 0.3;
+  opacity: 0.8;
 }
 
 .background__opacity:hover .btn {
   display: block;
   cursor: pointer;
+  z-index: 1;
 }
 
 .pair-details__value {

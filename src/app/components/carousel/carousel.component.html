@@ -4,7 +4,8 @@
       <ng-template ngbSlide>
         <div class="container">
           <div class="wrapper">
-            <div class="background" [ngStyle]="{backgroundImage:'url(../../../assets/{{currency.currSymbol}}.png)'}">
+            <div class="background">
+              <img src="{{currency.url}}">
               <div class="background__opacity">
                 <button class="btn"><fa-icon class="content__icon" [icon]="imgIcon"></fa-icon></button>
               </div>

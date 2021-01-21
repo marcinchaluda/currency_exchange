@@ -71,6 +71,7 @@ export class HttpService {
         const currencyDetails: Currency = ({
           currSymbol: key,
           currValue: Number(value),
+          url: '../../../assets/' + key + '.png',
         });
         currencies.push(currencyDetails);
       }

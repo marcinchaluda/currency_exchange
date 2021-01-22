@@ -6,11 +6,11 @@ import {ExchangeComponent} from './components/exchange/exchange.component';
 import {ChartComponent} from './components/chart/chart.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/', pathMatch: 'full'  },
-  { path: '', component: CarouselComponent },
+  { path: 'home', component: CarouselComponent },
   { path: 'list', component: CurrencyListComponent },
   { path: 'exchange', component: ExchangeComponent },
   { path: 'chart', component: ChartComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full'  },
 ];
 
 @NgModule({

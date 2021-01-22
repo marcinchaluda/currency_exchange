@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAAA,iCAAiC;AAOjC,kCAAkC;ACLlC,gBAAiB;EACf,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,YAAY;EAC7B,WAAW,EAAE,MAAM;EACnB,WAAW,EAAE,GAAG",
+"sources": ["../../../sass-global/_variables.scss","chart.component.scss"],
 "names": [],
 "file": "chart.component.css"
 }

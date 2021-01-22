@@ -41,5 +41,7 @@
       transition: 0.5s; }
     .menu__buttons a:hover {
       color: #317302; }
+    .menu__buttons .active {
+      color: #317302; }
 
 /*# sourceMappingURL=navigation.component.css.map */

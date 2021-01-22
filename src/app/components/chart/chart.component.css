@@ -1,3 +1,9 @@
-
+/* Color Theme Swatches in Hex */
+/* Color Theme Swatches in RGBA */
+.chart-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 2em; }
 
 /*# sourceMappingURL=chart.component.css.map */

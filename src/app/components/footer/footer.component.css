@@ -56,4 +56,7 @@
     text-align: center;
     padding: 0.5em; }
 
+.footer__icons .active {
+  color: #317302; }
+
 /*# sourceMappingURL=footer.component.css.map */

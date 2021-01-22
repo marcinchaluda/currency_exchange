@@ -31,6 +31,7 @@ export class NavigationComponent implements OnInit {
     this.setBaseCurrencyInService(event.target.value);
     this._httpService.getRatesForBaseCurrency();
     this._httpService.getExchangeList(this.exchangeList);
+    this._httpService.getHistoricalRates();
   }
   // tslint:disable-next-line:typedef
   private setBaseCurrencyInService(baseCurrency: string): void {

@@ -1,13 +1,16 @@
 <div class="container-fluid">
   <ngb-carousel *ngIf="commonCurrencies$">
-    <ng-container *ngFor="let currency of commonCurrencies$.value">
+    <ng-container *ngFor="let currency of commonCurrencies$.value; let i = index">
       <ng-template ngbSlide>
         <div class="container">
           <div class="wrapper">
             <div class="background">
-              <img src="{{currency.url}}">
+              <img id="{{i}}" [src]="urls[i]">
               <div class="background__opacity">
-                <button class="btn"><fa-icon class="content__icon" [icon]="imgIcon"></fa-icon></button>
+                <button (click)="chooseFile($event)" class="btn">
+                  <input id="getFile" type="file" name="{{currency.currSymbol}}" style="display: none" (change)="changeImage($event)">
+                  <fa-icon class="content__icon" [icon]="imgIcon"></fa-icon>
+                </button>
               </div>
             </div>
             <div class="pair-details">

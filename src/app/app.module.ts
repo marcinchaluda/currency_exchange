@@ -16,6 +16,8 @@ import {CurrencyListComponent} from './components/currency-list/currency-list.co
 import {ExchangeComponent} from './components/exchange/exchange.component';
 import {ChartComponent} from './components/chart/chart.component';
 import {FormsModule} from '@angular/forms';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import {FormsModule} from '@angular/forms';
         HttpClientModule,
         NgbModule,
         FormsModule,
+        NgxChartsModule,
+        BrowserAnimationsModule,
     ],
   providers: [HttpService, NgbCarouselConfig],
   bootstrap: [AppComponent]

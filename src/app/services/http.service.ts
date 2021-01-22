@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {Currency} from '../model/Currency';
 
@@ -21,6 +21,8 @@ export class HttpService {
   // baseCurr$: Observable<string> = this.baseCurrency.asObservable();
   // tslint:disable-next-line:variable-name
   _latestApiUpdate$ = new BehaviorSubject('');
+  // tslint:disable-next-line:variable-name
+  _historicalRates$ = new BehaviorSubject([]);
   // tslint:disable-next-line:variable-name
   private _baseCurrencyList = ['USD', 'GBP', 'CHF', 'EUR', 'JPY'];
   // tslint:disable-next-line:variable-name
@@ -116,7 +118,33 @@ export class HttpService {
       }
     });
   }
-
+  // tslint:disable-next-line:typedef
+  getHistoricalRates() {
+    // @ts-ignore
+    const historicalRates = [];
+    return this._http.get(this.BASE_URL + `latest/?base=${this.baseCurrency$.value}`).subscribe(data => {
+      // @ts-ignore
+      // console.log(data.rates);
+      this.baseCurrency = data.base;
+      // @ts-ignore
+      for (const [key, value] of Object.entries(data.rates)) {
+        if (!(key === 'IDR' || key === 'KRW')) {
+          // @ts-ignore
+          const currencyDetails = {
+            name: key,
+            value: Number(value),
+          };
+          historicalRates.push(currencyDetails);
+        }
+      }
+      // @ts-ignore
+      this._historicalRates$.next(historicalRates);
+    });
+  }
+  // @ts-ignore
+  getHistoricalRatesAsObservable(): Observable<Array<Currency>> {
+    return this._historicalRates$.asObservable();
+  }
   setBaseCurrency(currency: string): void {
     // @ts-ignore
     this.baseCurrency$.next(currency);
